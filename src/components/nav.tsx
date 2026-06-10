@@ -18,6 +18,12 @@ export default async function Nav() {
               <Link href="/dashboard" className="hover:text-emerald-400">
                 Dashboard
               </Link>
+              <Link href="/perfil" className="hover:text-emerald-400">
+                Perfil
+              </Link>
+              <Link href="/calculadoras" className="hover:text-emerald-400">
+                Calculadoras
+              </Link>
               <form action={signOutAction}>
                 <button
                   type="submit"
