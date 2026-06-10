@@ -46,13 +46,13 @@ supabase/schema.sql     # Tabla profiles + trigger + políticas RLS
 ### 2. Sacar las 2 variables de entorno
 En el dashboard del proyecto: **Project Settings → API** (o **Data API**):
 - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
-- **anon / public key** → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- **anon / public / publishable key** → `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
 
 Copia ambas a tu `.env.local` (ya existe con los nombres listos):
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJhbGci...
 ```
 
 > Las dos son **públicas** (van al navegador). Lo que protege tus datos es la
@@ -88,7 +88,7 @@ Luego ese usuario podrá entrar a `/admin`.
 1. Sube el repo a GitHub.
 2. En <https://vercel.com> → **Add New → Project** → importa el repo.
 3. En **Environment Variables** añade las mismas dos:
-   `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+   `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
 4. **Deploy**. Vercel detecta Next.js automáticamente.
 5. (Recomendado) En Supabase → **Authentication → URL Configuration** añade la
    URL de Vercel a *Site URL* / *Redirect URLs*.
