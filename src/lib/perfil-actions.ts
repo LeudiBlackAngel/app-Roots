@@ -10,6 +10,7 @@ import {
 } from "@/lib/calculadoras";
 import { RESTRICCIONES_DISPONIBLES } from "@/lib/restricciones";
 import type { UnidadAltura, UnidadPeso } from "@/lib/unidades";
+import { desbloquearLogro } from "@/lib/gamificacion";
 
 export type PerfilState = {
   error?: string | null;
@@ -122,6 +123,9 @@ export async function saveMetricsAction(
   if (error) {
     return { error: "No se pudo guardar tu perfil: " + error.message };
   }
+
+  // Logro: perfil completo (se guardó con todos los campos válidos).
+  await desbloquearLogro(supabase, user.id, "primer_perfil");
 
   revalidatePath("/dashboard");
   revalidatePath("/perfil");

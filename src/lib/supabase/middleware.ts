@@ -10,7 +10,18 @@ import { NextResponse, type NextRequest } from "next/server";
  */
 
 // Rutas que requieren sesion iniciada.
-const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/perfil"];
+const PROTECTED_PREFIXES = [
+  "/dashboard",
+  "/admin",
+  "/perfil",
+  "/ejercicios",
+  "/rutina",
+  "/progreso",
+  "/alimentos",
+  "/dieta",
+  "/comidas",
+  "/escaner",
+];
 
 // Rutas de auth: si ya hay sesion, mandamos al dashboard.
 const AUTH_ROUTES = ["/login", "/registro"];
